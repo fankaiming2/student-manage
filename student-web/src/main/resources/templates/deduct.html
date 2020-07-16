@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>扣分</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="fly,layui,前端社区">
+    <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../static/layui/css/global.css">
+</head>
+<style>
+    .laytable-cell-1-0-4 {
+        color: #65bce6;
+    }
+    td{    text-align:center;}
+
+    .laytable-cell-1-0-2 {
+        color: #d14f62;
+    }
+
+    .laytable-cell-1-0-3 {
+        color: #d14f62;
+    }
+
+</style>
+<body>
+<div id="view-member-div" style="padding: 1% 5%;display: none">
+    <table class="layui-table" id="view-member-table"></table>
+</div>
+
+<div class="fly-header layui-bg-black">
+    <div class="layui-container">
+        <!--
+                <p style="color: #009f95;font-size: 30px ;margin-top:10px"> Lucky2and1      </p>
+        -->
+        <ul class="layui-nav ">
+            <li class="layui-nav-item layui-this">
+                <p style="color: #009f95;font-size: 35px ;"> 扣分管理 </p>
+            </li>
+        </ul>
+
+        <ul class="layui-nav fly-nav-user">
+            <!-- 登入后的状态 -->
+            <li class="layui-nav-item">
+                <a class="fly-nav-avatar" href="javascript:;">
+                    <cite class="layui-hide-xs" th:text="${session.user.username}">桂桂</cite>
+                    <i class="iconfont icon-renzheng layui-hide-xs" title="认证信息：layui 作者"></i>
+                    <i class="layui-badge fly-badge-vip layui-hide-xs">VIP</i>
+                    <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="account"><i class="layui-icon">&#xe620;</i>我的</a></dd>
+                    <hr style="margin: 5px 0;">
+                    <dd><a href="/user/loginPage"><i class="layui-icon">&#xe620;</i>退出</a></dd>
+                    <hr style="margin: 5px 0;">
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="layui-container fly-marginTop">
+    <div class="fly-panel fly-panel-user" pad20>
+        <ul class="layui-nav" lay-filter="">
+            <li class="layui-nav-item layui-this"><a href="#">扣分</a></li>
+            <!--
+                        <li class="layui-nav-item "><a href="/user/betRecords">下注记录</a></li>
+            -->
+        </ul>
+    </div>
+</div>
+<div class="layui-container fly-marginTop">
+    <div class="layui-row">
+        <div class="layui-col-xs6">
+            <div class="grid-demo grid-demo-bg1">
+                <div class="layui-form">
+                    <table class="layui-table">
+                        <colgroup>
+                            <col width="150">
+                            <col width="150">
+                            <col width="200">
+                            <col>
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <td colspan="3" >学生信息</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>学生姓名</td>
+                            <td>范凯鸣</td>
+                            <td rowspan="6">
+                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3049802714,481326935&fm=26&gp=0.jpg" width="220%" style="height:150px;" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>学号</td>
+                            <td>20131010</td>
+                        </tr>
+                        <tr>
+                            <td>性别</td>
+                            <td>男</td>
+                        </tr>
+                        <tr>
+                            <td>年龄</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>班级</td>
+                            <td>java42</td>
+                        </tr>
+                        <tr>
+                            <td>剩余学分</td>
+                            <td>100</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="layui-col-xs6">
+            <div class="grid-demo"> <table class="layui-table">
+                <colgroup>
+                    <col width="80">
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <td colspan="2" >扣分操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>扣分值</td>
+                    <td><input type="number" name="title" lay-verify="title" autocomplete="off" placeholder="请输入分值" class="layui-input"></td>
+                </tr>
+                <tr>
+                    <td>扣分原因</td>
+                    <td><input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入原因" class="layui-input"></td>
+                </tr>
+                <tr>
+                    <td>扣分时间</td>
+                    <td><input type="text" class="layui-input" id="test5" placeholder="yyyy-MM-dd HH:mm:ss"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" ><button type="button" class="layui-btn layui-btn-fluid">确认提交扣分</button></td>
+                </tr>
+
+                </tbody>
+            </table></div>
+        </div>
+    </div>
+    <!--回显该学生的信息-->
+
+
+</div>
+
+<div class="fly-footer">
+    <p><a href="http://fly.layui.com/" target="_blank">知领社区</a> 2020 &copy; <a href="http://www.layui.com/"
+                                                                               target="_blank">zhiling.com 出品</a></p>
+</div>
+
+</body>
+<script src="../static/layui/layui.js" charset="utf-8"></script>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="deduct">扣分</a>
+    <!-- {{#  if(d.luckyNum == '-&#45;&#45;'){ }}-->
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="detail">查看扣分记录</a>
+    <!--  {{#  } }}-->
+
+</script>
+<script type="text/html" id="username">
+    <span style="color: #F581B1;">{{ d.username.substring(0, 1)+'**' }}</span>
+</script>
+<script>
+    layui.use(['element', 'table', 'form', 'layedit','laydate'], function () {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+        var table = layui.table;
+        var form = layui.form;
+        var $ = layui.$;
+        var laydate = layui.laydate;
+        /*layui.use('laydate', function(){
+          var laydate = layui.laydate;*/
+        //日期时间选择器
+        laydate.render({
+            elem: '#test5'
+            ,type: 'datetime'
+        });
+
+
+    });
+</script>
+</html>
